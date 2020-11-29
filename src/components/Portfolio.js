@@ -50,7 +50,7 @@ export const Portfolio = ({ list = [] }) => {
     });
   };
   return (
-    <section className="tenancyList">
+    <section className="tenancy-list">
       {/*<AddTenancyForm onSubmit={addTenancy} />*/}
       <TenancyList data={tenancies} onDelete={deleteItems} onEdit={editItems} />
     </section>

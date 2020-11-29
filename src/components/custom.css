@@ -18,4 +18,16 @@
     background-position: center;
 }
 
+.card-img-top {
+    height: 180px;
+}
 
+.card-body {
+    text-align: left;
+    color: #1f1f1f;
+}
+
+.image-plus {
+    height: 120px;
+    margin-top: 5%;
+}

@@ -1,5 +1,5 @@
 @media screen and (max-width: 1050px) {
-    .app-header, .carousel, .slide, .navbar-container, footer, .about-container {
+    .app-header, .carousel, .slide, .navbar-container, .tenancy-list, footer, .about-container {
         width: 90%;
     }
     .w-100 {

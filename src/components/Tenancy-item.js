@@ -1,62 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
+import { useHistory } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
-const ItemStyle = (props) => <li className="item">{props.children}</li>;
-
-const TenancyItem = ({ tenancy, onDelete, onEdit }) => {
-  const [edit, setEdit] = useState(false);
-  const [imageUrl, setImageUrl] = useState(tenancy.imageUrl);
-  const [address, setAddress] = useState(tenancy.address);
-  const [size, setSize] = useState(tenancy.size);
-  const [rooms, setRooms] = useState(tenancy.rooms);
-
+const TenancyItem = ({ tenancy }) => {
+  const history = useHistory();
   return (
-    <ItemStyle>
-      {edit ? (
-        <>
-          <input
-            type="text"
-            required="required"
-            minLength="3"
-            value={size}
-            onChange={(e) => setSize(e.target.value)}
-          />
-          <input
-            type="text"
-            required="required"
-            minLength="3"
-            value={rooms}
-            onChange={(e) => setRooms(e.target.value)}
-          />
-        </>
-      ) : (
-        <>
-          <p>{tenancy.size} </p>
-          <p>{tenancy.rooms}</p>
-        </>
-      )}
-
-      <button onClick={() => onDelete(tenancy.id)}>Delete</button>
-      {edit ? (
-        <button
-          onClick={() => {
-            onEdit(tenancy.id, rooms, size);
-            setEdit(false);
-          }}
+    <Card>
+      <Card.Img variant="top" src={tenancy.imageUrl} />
+      <Card.Body>
+        <Card.Title>{tenancy.address}</Card.Title>
+        <Card.Text>
+          <b>Size:</b> {tenancy.size} m<sup>2</sup>
+        </Card.Text>
+        <Card.Text>
+          <b>Rooms:</b> {tenancy.rooms}
+        </Card.Text>
+        <Button
+          onClick={() => history.push("/tenancy/" + tenancy.id)}
+          variant="info"
         >
-          Update
-        </button>
-      ) : (
-        <button onClick={() => setEdit(true)}>Edit</button>
-      )}
-    </ItemStyle>
+          See details
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
 export default TenancyItem;
 
 TenancyItem.propTypes = {
   id: PropTypes.number,
-  description: PropTypes.string,
-  deadline: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-  done: PropTypes.bool,
+  imageUrl: PropTypes.string,
+  address: PropTypes.string,
+  size: PropTypes.string,
+  rooms: PropTypes.string,
 };

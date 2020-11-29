@@ -1,8 +1,7 @@
 body {
   margin: 0;
   font-size: 17px;
-  font-family: "Segoe Print", cursive;
-  color: #9dd9f0;
+  font-family: "Interstate", sans-serif;
   background-color: #cccccc;
 }
 
@@ -19,13 +18,13 @@ nav.navbar-container {
 
 .navbar-container a {
   text-decoration: none;
-  color: #9dd9f0;
+  color: #17a2b8;
   margin-left: 10%;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-.app-header, .carousel, .slide, .navbar-container, .container, footer, .about-container {
+.app-header, .carousel, .slide, .navbar-container, .tenancy-list, footer, .about-container {
   text-align: center;
   width: 60%;
   background-color: #1f1f1f;
@@ -35,5 +34,3 @@ nav.navbar-container {
   border: 2px solid #1f1f1f;
   box-shadow: 0 0 10px 0 #333333;
 }
-
-
