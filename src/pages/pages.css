@@ -1,0 +1,9 @@
+input[type="file"] {
+    color: white;
+}
+
+.auto-adress-container {
+    background-color: white;
+    list-style: none;
+    color: #1f1f1f;
+}

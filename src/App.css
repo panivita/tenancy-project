@@ -24,7 +24,7 @@ nav.navbar-container {
   font-weight: bold;
 }
 
-.app-header, .carousel, .slide, .navbar-container, .tenancy-list, footer, .about-container {
+.app-header, .carousel, .slide, .navbar-container, .tenancy-list, .add-tenancy-form, footer, .about-container {
   text-align: center;
   width: 60%;
   background-color: #1f1f1f;
@@ -34,3 +34,4 @@ nav.navbar-container {
   border: 2px solid #1f1f1f;
   box-shadow: 0 0 10px 0 #333333;
 }
+
