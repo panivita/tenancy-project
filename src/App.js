@@ -3,13 +3,12 @@ import "./App.css";
 import "./media.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { AboutPage } from "./pages/About-page";
-//import { TenanciesDetailsPage } from "./pages/Tenancies-details-page";
+import { TenanciesDetailsPage } from "./pages/Tenancies-details-page";
 import { AddTenancyFormPage } from "./pages/Add-tenancy-page";
 import { Header } from "./components/Header";
 import { Portfolio } from "./components/Portfolio";
 
 const App = () => {
-  
   return (
     <Router>
       <nav className="navbar-container">
@@ -29,9 +28,9 @@ const App = () => {
         <Route path="/add_tenancy">
           <AddTenancyFormPage />
         </Route>
-        {/*<Route path="/tenancies/:id">
+        <Route path="/tenancy/:id">
           <TenanciesDetailsPage />
-        </Route>*/}
+        </Route>
       </Switch>
     </Router>
   );

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./pages.css";
 
-export const AddTenancyFormPage = () => {
+export const AddTenancyFormPage = ({onSubmit}) => {
+  const [imageUrl, setImageUrl] = useState("");
   const [address, setAddress] = useState("");
   const [size, setSize] = useState("");
   const [rooms, setRooms] = useState("");
   const [display, setDisplay] = useState(false);
   const [options, setOptions] = useState([]);
-  const [newImgUrl, setNewImgUrl] = useState(null);
 
   useEffect(() => {
     const baseUrl = `https://dawa.aws.dk/autocomplete?q=${address}`;
@@ -28,7 +28,7 @@ export const AddTenancyFormPage = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log(newImgUrl, address, size, rooms);
+    console.log(imageUrl, address, size, rooms);
   };
   return (
     <Form className="add-tenancy-form" onSubmit={handleSubmit}>
@@ -37,8 +37,8 @@ export const AddTenancyFormPage = () => {
           type="text"
           name="imageUrl"
           placeholder="Image url"
-          value={newImgUrl}
-          onChange={(e) => setNewImgUrl(e.target.value)}
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
         />
       </Form.Group>
       <Form.Group>

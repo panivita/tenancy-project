@@ -5,7 +5,7 @@ import TenancyItem from "./Tenancy-item";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
-const TenancyList = ({ data = [], onDelete, onEdit }) => {
+const TenancyList = ({ data = [], onDelete, onEdit}) => {
   const history = useHistory();
   const TenancyItems = data.map((item) => (
     <TenancyItem
@@ -21,7 +21,7 @@ const TenancyList = ({ data = [], onDelete, onEdit }) => {
       <Card>
         <Card.Img variant="top" src={Plus} className="image-plus" />
         <Card.Body>
-          <Button onClick={() => history.push("/add_tenancy/")} variant="info">
+          <Button onClick={() => history.push("/add_tenancy")} variant="info">
             Add new tenancy
           </Button>
         </Card.Body>
