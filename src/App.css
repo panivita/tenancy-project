@@ -6,7 +6,7 @@ body {
 }
 
 nav.navbar-container {
-  margin: 5px auto;
+  margin: 10px auto;
 }
 
 .navbar-container ul {
@@ -24,9 +24,16 @@ nav.navbar-container {
   font-weight: bold;
 }
 
-.app-header, .carousel, .slide, .navbar-container, .tenancy-list, .add-tenancy-form, footer, .about-container {
+.copyright {
+  color: #17a2b8;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.app-header, .carousel, .slide, .navbar-container, .tenancy-list, footer, .about-container {
   text-align: center;
-  width: 60%;
+  width: 70%;
   background-color: #1f1f1f;
   margin: 1% auto;
   padding: 2%;
@@ -34,4 +41,3 @@ nav.navbar-container {
   border: 2px solid #1f1f1f;
   box-shadow: 0 0 10px 0 #333333;
 }
-

@@ -31,7 +31,7 @@ export const AddTenancyFormPage = ({onSubmit}) => {
     console.log(imageUrl, address, size, rooms);
   };
   return (
-    <Form className="add-tenancy-form" onSubmit={handleSubmit}>
+    <Form className="tenancy-list" onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Control
           type="text"

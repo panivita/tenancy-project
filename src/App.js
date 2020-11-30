@@ -32,6 +32,9 @@ const App = () => {
           <TenanciesDetailsPage />
         </Route>
       </Switch>
+      <footer>
+        <h3 className="copyright">© 2020 Victoria Kush</h3>
+      </footer>
     </Router>
   );
 };
