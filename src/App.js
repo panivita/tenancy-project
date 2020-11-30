@@ -8,7 +8,7 @@ import { AddTenancyFormPage } from "./pages/Add-tenancy-page";
 import { Header } from "./components/Header";
 import { Portfolio } from "./components/Portfolio";
 
-const App = ({ onSubmit }) => {
+const App = () => {
   
   return (
     <Router>
@@ -26,8 +26,8 @@ const App = ({ onSubmit }) => {
           <Portfolio />
         </Route>
         <Route path="/about">{/*<AboutPage />*/}</Route>
-        <Route path="/add_tenancy/">
-          <AddTenancyFormPage onSubmit={onSubmit} />
+        <Route path="/add_tenancy">
+          <AddTenancyFormPage />
         </Route>
         {/*<Route path="/tenancies/:id">
           <TenanciesDetailsPage />

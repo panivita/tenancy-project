@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { AddTenancyFormPage } from "../pages/Add-tenancy-page";
 import TenancyList from "./Tenancy-list";
 
 export const Portfolio = ({ list = [] }) => {
@@ -52,7 +51,6 @@ export const Portfolio = ({ list = [] }) => {
   return (
     <section className="tenancy-list">
       <TenancyList data={tenancies} onDelete={deleteItems} onEdit={editItems} />{" "}
-      <AddTenancyFormPage onSubmit={addTenancy} />
     </section>
   );
 };
