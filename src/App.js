@@ -8,7 +8,8 @@ import { AddTenancyFormPage } from "./pages/Add-tenancy-page";
 import { Header } from "./components/Header";
 import { Portfolio } from "./components/Portfolio";
 
-const App = ({onSubmit}) => {
+const App = ({ onSubmit }) => {
+  
   return (
     <Router>
       <nav className="navbar-container">
@@ -24,11 +25,9 @@ const App = ({onSubmit}) => {
           <Header />
           <Portfolio />
         </Route>
-        <Route path="/about">
-          <AboutPage />
-        </Route>
+        <Route path="/about">{/*<AboutPage />*/}</Route>
         <Route path="/add_tenancy/">
-          <AddTenancyFormPage onSubmit={onSubmit}/>
+          <AddTenancyFormPage onSubmit={onSubmit} />
         </Route>
         {/*<Route path="/tenancies/:id">
           <TenanciesDetailsPage />

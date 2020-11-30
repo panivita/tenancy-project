@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { Formik } from "formik";
+import * as yup from "yup";
 import { Form, Button } from "react-bootstrap";
 import "./pages.css";
 
-export const AddTenancyFormPage = ({ onSubmit }) => {
-  const { register, handleSubmit } = useForm();
-  const [address, setAddress] = useState("");
+const schema = yup.object({
+  imageUrl: yup.string().required(),
+  address: yup.string().required(),
+  size: yup.string().required(),
+  rooms: yup.string().required(),
+});
+
+export const AddTenancyFormPage = () => {
+  /*const [address, setAddress] = useState("");
   const [display, setDisplay] = useState(false);
   const [options, setOptions] = useState([]);
+  const [file, setFile] = useState(null);
+  const [imgData, setImgData] = useState(null);
+  const [error, setError] = useState(null);
+  const types = ["image/png", "image/jpeg", "image/jpg"];
 
   useEffect(() => {
     const baseUrl = `https://dawa.aws.dk/autocomplete?q=${address}`;
@@ -25,78 +36,119 @@ export const AddTenancyFormPage = ({ onSubmit }) => {
       .catch((err) => console.log(err));
   }, [address]);
 
+  const handleImageUpload = (e) => {
+    const selectedFile = e.target.files[0];
+    const reader = new FileReader();
+    if (selectedFile) {
+      if (types.includes(selectedFile.type)) {
+        setError(null);
+        setFile(selectedFile);
+        reader.addEventListener("load", () => {
+          setImgData(reader.result);
+        });
+        reader.readAsDataURL(selectedFile);
+      } else {
+        setFile(null);
+        setImgData(null);
+        setError("Please select an image file (png or jpg)");
+      }
+    }
+  };*/
+
   return (
-    <Form className="add-tenancy-form" onSubmit={handleSubmit(onSubmit)}>
-      <Form.Group>
-        <Form.File.Input
-          type="file"
-          name="imageUrl"
-          ref={register({ required: true })}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Control
-          type="text"
-          name="address"
-          placeholder="Address"
-          ref={register({
-            required: true,
-            minLength: 2,
-            maxLength: 25,
-            pattern: /^[A-Za-z]+$/i,
-          })}
-          value={address}
-          onChange={(event) => setAddress(event.target.value)}
-        ></Form.Control>
+    <Formik
+      validationSchema={schema}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          console.log(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 400);
+      }}
+      initialValues={{
+        imageUrl: "",
+        address: "",
+        size: "",
+        rooms: "",
+      }}
+    >
+      {({ handleSubmit, handleChange, handleBlur, values, errors }) => (
+        <Form className="add-tenancy-form" onSubmit={handleSubmit}>
+          {/*<Form.Group>
+            <Form.File.Input
+              type="file"
+              name="imageUrl"
+              multiple={false}
+              files={file}
+              onChange={handleImageUpload}
+            />
+            {error && <p>{error}</p>}
+            <div className="image-preview">
+              <img className="new-image" alt="" src={imgData} />}
+            </div>
+          </Form.Group>
+          <Form.Group>
+            <Form.Control
+              type="text"
+              name="address"
+              placeholder="Address"
+              value={address}
+              onChange={(event) => setAddress(event.target.value)}
+            ></Form.Control>
 
-        {display && (
-          <ul className="auto-adress-container">
-            {options ? (
-              options.map(({ id, tekst }) => (
-                <li
-                  onClick={() => {
-                    setAddress(tekst);
-                    setDisplay(false);
-                  }}
-                  className="options"
-                  key={id}
-                  tabIndex="0"
-                  style={{ outline: "none", cursor: "pointer" }}
-                >
-                  <span>{tekst}</span>
-                </li>
-              ))
-            ) : (
-              <li className="users">No results found</li>
+            {display && (
+              <ul className="auto-adress-container">
+                {options ? (
+                  options.map(({ id, tekst }) => (
+                    <li
+                      onClick={() => {
+                        setAddress(tekst);
+                        setDisplay(false);
+                      }}
+                      className="options"
+                      key={id + tekst}
+                      tabIndex="0"
+                      style={{ outline: "none", cursor: "pointer" }}
+                    >
+                      <span>{tekst}</span>
+                    </li>
+                  ))
+                ) : (
+                  <li className="users">No results found</li>
+                )}
+              </ul>
             )}
-          </ul>
-        )}
-      </Form.Group>
-      <Form.Group>
-        <Form.Control
-          type="number"
-          name="size"
-          placeholder="Size"
-          ref={register({ required: true, min: 1, max: 3 })}
-        ></Form.Control>
-      </Form.Group>
+                </Form.Group>*/}
+          <Form.Group>
+            <Form.Control
+              type="text"
+              placeholder="Size"
+              name="size"
+              value={values.size}
+              onChange={handleChange}
+            ></Form.Control>
+            <Form.Control.Feedback type="invalid">
+              {errors.size}
+            </Form.Control.Feedback>
+          </Form.Group>
 
-      <Form.Group>
-        <Form.Control
-          type="number"
-          name="rooms"
-          placeholder="Rooms"
-          ref={register({
-            required: true,
-            min: 1,
-            max: 2,
-          })}
-        ></Form.Control>
-      </Form.Group>
+          <Form.Group>
+            <Form.Control
+              type="text"
+              name="rooms"
+              placeholder="Rooms"
+              onChange={handleChange}
+              value={values.rooms}
+            ></Form.Control>
+            <Form.Control.Feedback type="invalid">
+              {errors.rooms}
+            </Form.Control.Feedback>
+          </Form.Group>
 
-      <Button type="submit" variant="info">
-        Submit
-      </Button>
-    </Form>
+          <Button type="submit" variant="info">
+            Submit
+          </Button>
+        </Form>
+      )}
+    </Formik>
   );
 };

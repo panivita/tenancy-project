@@ -32,6 +32,6 @@ TenancyItem.propTypes = {
   id: PropTypes.number,
   imageUrl: PropTypes.string,
   address: PropTypes.string,
-  size: PropTypes.string,
-  rooms: PropTypes.string,
+  size: PropTypes.number,
+  rooms: PropTypes.number,
 };
