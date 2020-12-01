@@ -34,7 +34,7 @@ export const StreetView = ({ address }) => {
   return (
     <div
       style={{
-        width: "50%",
+        width: "100%",
         height: "350px",
         backgroundColor: "#eeeeee",
       }}

@@ -30,14 +30,10 @@ export const Portfolio = ({ list = [] }) => {
     });
   };
 
-  
-  
   return (
     <section className="tenancy-list">
-      <TenancyList
-        data={tenancies}
-      />
-      <Card>
+      <TenancyList data={tenancies} />
+      <Card className="add-new-tenancy">
         <Card.Img variant="top" src={Plus} className="image-plus" />
         <Card.Body style={{ textAlign: "center" }}>
           <Button onClick={() => history.push("/add_tenancy")} variant="info">

@@ -31,3 +31,14 @@
     height: 120px;
     margin-top: 5%;
 }
+
+.add-new-tenancy {
+    width: 32%;
+    margin: auto;
+}
+
+@media screen and (max-width: 1050px) {
+    .add-new-tenancy {
+        width: 100%;
+    }
+}

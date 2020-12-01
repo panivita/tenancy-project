@@ -9,9 +9,25 @@
         width: 20px;
         height: 20px;
     }
+    .media {
+        flex-direction: column;
+    }
+    .tenancy-list .media .carousel{
+        width: 100%;
+    }
+    .media-body {
+        margin: 0 5%;
+    }
+    .tenancy-list .button-container {
+        justify-content: space-evenly;
+        margin-bottom: 5%;
+    }
+    .tenancy-list .media .media-body h3 {
+        text-align: center;
+    }
 }
 
-@media screen and (max-width: 455px) {
+@media screen and (max-width: 700px) {
     h1 {
         font-size: 22px;
     }
@@ -20,11 +36,5 @@
     }
     .navbar-container ul {
         font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .result-search span {
-        font-size: 13px;
     }
 }

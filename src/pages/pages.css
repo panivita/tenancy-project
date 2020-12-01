@@ -8,17 +8,18 @@ input[type="file"] {
     color: #1f1f1f;
 }
 
-.img-thumbnail {
+ .media .carousel {
     width: 45%;
     margin-right: 5%;
 }
-
+.media .w-100, .media .d-block {
+    height: 40vh;
+}
 .media-body {
     color: #17a2b8;
 }
 
 .button-container {
-    
     display: flex;
     justify-content: flex-end;
 }
