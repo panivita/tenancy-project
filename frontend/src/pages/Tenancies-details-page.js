@@ -15,29 +15,6 @@ export const TenanciesDetailsPage = () => {
     })();
   }, [id]);
 
-  const editItems = (id, value) => {
-    setTenancy((stateEdit) => {
-      return stateEdit.map((tenancy) => {
-        if (tenancy.id === id) {
-          return {
-            ...tenancy,
-            description: value.newDescription,
-            address: value.newAaddress,
-            size: value.newSize,
-            rooms: value.newRooms,
-          };
-        }
-        return tenancy;
-      });
-    });
-  };
-
-  const deleteItems = (id) => {
-    setTenancy((stateDelete) => {
-      const deletedItem = stateDelete.filter((tenancy) => tenancy.id !== id);
-      return deletedItem;
-    });
-  };
   return (
     <>
       <div className="tenancy-list">
@@ -46,8 +23,6 @@ export const TenanciesDetailsPage = () => {
             <TenancyDetails
               key={t.id}
               {...t}
-              onEdit={editItems}
-              onDelete={deleteItems}
             />
           ))}
       </div>

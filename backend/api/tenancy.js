@@ -10,8 +10,8 @@ router.get("/", async (req, res) => {
 
 //Adds a new tenancy
 router.post("/", async (req, res) => {
-  const { addres, description, url, size, rooms } = req.body;
-  const newTenancy = { addres, description, url, size, rooms };
+  const { address, description, url, size, rooms } = req.body;
+  const newTenancy = { address, description, url, size, rooms };
 
   await knex("flats").insert(newTenancy);
   res.send("New tenancy added");
@@ -26,13 +26,16 @@ router.get("/:id", async (req, res) => {
 
 // Updates the Tenancy by id
 router.put("/:id", async (req, res) => {
-  const { addres, description, url, size, rooms } = req.body;
+  const { address, description, size, rooms } = req.body;
   const { id } = req.params;
 
-  await knex("flats")
-    .where({ id })
-    .update({ addres, description, url, size, rooms });
-  res.send(`Tenancy with id ${id} was updated`);
+  const updateTenancy = await knex("flats").where({ id }).update({
+    address: address,
+    description: description,
+    size: size,
+    rooms: rooms,
+  });
+  res.json(updateTenancy);
 });
 
 //Deletes the meal by id

@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import "./pages.css";
 
-export const AddTenancyFormPage = ({onSubmit}) => {
+export const AddTenancyFormPage = ({ onSubmit }) => {
   const [url, setUrl] = useState("");
   const [address, setAddress] = useState("");
+  const [description, setDescription] = useState("");
   const [size, setSize] = useState("");
   const [rooms, setRooms] = useState("");
   const [display, setDisplay] = useState(false);
   const [options, setOptions] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     const baseUrl = `https://dawa.aws.dk/autocomplete?q=${address}`;
@@ -26,12 +29,26 @@ export const AddTenancyFormPage = ({onSubmit}) => {
       .catch((err) => console.log(err));
   }, [address]);
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    console.log(url, address, size, rooms);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await fetch("/api/tenancy", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        url: url,
+        description: description,
+        address: address,
+        size: size,
+        rooms: rooms,
+      }),
+    });
+    history.push("/");
   };
   return (
-    <Form className="tenancy-list" onSubmit={handleSubmit}>
+    <Form noValidate className="tenancy-list" onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Control
           type="text"
@@ -73,6 +90,18 @@ export const AddTenancyFormPage = ({onSubmit}) => {
           </ul>
         )}
       </Form.Group>
+
+      <Form.Group>
+        <Form.Control
+          as="textarea"
+          rows={5}
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </Form.Group>
+
       <Form.Group>
         <Form.Control
           type="number"

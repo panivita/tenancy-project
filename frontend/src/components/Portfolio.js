@@ -15,19 +15,6 @@ export const Portfolio = ({ list = [] }) => {
       .catch((err) => console.log(err));
   }, []);
 
-  const addTenancy = (val) => {
-    setTenancies((tenancy) => {
-      const item = {
-        id: tenancy[tenancy.length - 1]?.id + 1 || 1,
-        url: val.url,
-        address: val.address,
-        size: val.size,
-        rooms: val.rooms,
-      };
-      return [...tenancy, item];
-    });
-  };
-
   return (
     <section className="tenancy-list">
       <TenancyList data={tenancies} />
