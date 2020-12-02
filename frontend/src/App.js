@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import "./media.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { AboutPage } from "./pages/About-page";
 import { TenanciesDetailsPage } from "./pages/Tenancies-details-page";
 import { AddTenancyFormPage } from "./pages/Add-tenancy-page";
 import { Header } from "./components/Header";
@@ -24,7 +23,6 @@ const App = () => {
           <Header />
           <Portfolio />
         </Route>
-        <Route path="/about">{/*<AboutPage />*/}</Route>
         <Route path="/add_tenancy">
           <AddTenancyFormPage />
         </Route>

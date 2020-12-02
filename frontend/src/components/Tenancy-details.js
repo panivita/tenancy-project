@@ -1,48 +1,55 @@
 import React, { useState } from "react";
-import {
-  Media,
-  Button,
-  FormControl,
-  InputGroup,
-  Carousel,
-} from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import { Media, Image, Button, FormControl, InputGroup } from "react-bootstrap";
 import { Trash, PencilSquare } from "react-bootstrap-icons";
 import { StreetView } from "./Street-view";
 
 export const TenancyDetails = ({
   id,
-  imageUrl,
+  url,
   address,
   size,
   rooms,
   description,
-  onEdit,
-  onDelete,
 }) => {
   const [edit, setEdit] = useState(false);
   const [newDescription, setDescription] = useState(description);
-  const [newAaddress, setAddress] = useState(address);
+  const [newAddress, setAddress] = useState(address);
   const [newSize, setSize] = useState(size);
   const [newRooms, setRooms] = useState(rooms);
+  const history = useHistory();
+
+  const onEdit = () => {
+    fetch("/api/tenancy/" + id, {
+      method: "put",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        address: newAddress,
+        description: newDescription,
+        size: newSize,
+        rooms: newRooms,
+      }),
+    }).catch((err) => {
+      console.error(err);
+    });
+  };
+  const onDelete = () => {
+    fetch("/api/tenancy/" + id, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+      },
+    }).catch((err) => {
+      console.error(err);
+    });
+    history.push("/");
+  };
   return (
     <>
       <Media style={{ textAlign: "left" }}>
-        <Carousel>
-          <Carousel.Item interval={3000}>
-            <div
-              className="d-block w-100"
-              style={{
-                backgroundImage: `url(${imageUrl})`,
-              }}
-            />
-          </Carousel.Item>
-          <Carousel.Item interval={3000}>
-            <div className="d-block w-100">
-              <StreetView address={address} />
-            </div>
-          </Carousel.Item>
-        </Carousel>
-
+        <Image src={url} thumbnail />
         <Media.Body>
           {edit ? (
             <>
@@ -50,7 +57,7 @@ export const TenancyDetails = ({
                 <FormControl
                   type="text"
                   required="required"
-                  value={newAaddress}
+                  value={newAddress}
                   onChange={(e) => setAddress(e.target.value)}
                 />
               </InputGroup>
@@ -103,7 +110,7 @@ export const TenancyDetails = ({
             <Button
               variant="info"
               onClick={() => {
-                onEdit(id, { newRooms, newAaddress, newDescription, newSize });
+                onEdit();
                 setEdit(false);
               }}
               style={{ marginRight: "5%" }}
@@ -124,13 +131,15 @@ export const TenancyDetails = ({
               <PencilSquare style={{ marginRight: "5px" }} />
               Edit
             </Button>
-
-            <Button variant="info" onClick={() => onDelete(id)}>
+            <Button variant="info" onClick={() => onDelete()}>
               <Trash style={{ marginRight: "5px" }} />
               Delete
             </Button>
           </>
         )}
+      </div>
+      <div className="street-view-container">
+        <StreetView address={address} />
       </div>
     </>
   );

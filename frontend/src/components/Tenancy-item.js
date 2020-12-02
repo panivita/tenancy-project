@@ -7,7 +7,7 @@ const TenancyItem = ({ tenancy }) => {
   const history = useHistory();
   return (
     <Card>
-      <Card.Img variant="top" src={tenancy.imageUrl} />
+      <Card.Img variant="top" src={tenancy.url} />
       <Card.Body>
         <Card.Title>{tenancy.address}</Card.Title>
         <Card.Text>
@@ -30,7 +30,7 @@ export default TenancyItem;
 
 TenancyItem.propTypes = {
   id: PropTypes.number,
-  imageUrl: PropTypes.string,
+  url: PropTypes.string,
   address: PropTypes.string,
   size: PropTypes.number,
   rooms: PropTypes.number,

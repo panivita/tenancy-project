@@ -32,6 +32,7 @@
     margin-top: 5%;
 }
 
+<<<<<<< HEAD:src/components/custom.css
 .add-new-tenancy {
     width: 32%;
     margin: auto;
@@ -41,4 +42,16 @@
     .add-new-tenancy {
         width: 100%;
     }
+=======
+.street-view-container {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    margin: 5% auto 3%;
+}
+
+.new-tenancy-card {
+    margin: auto;
+    width: 32%;
+>>>>>>> backend:frontend/src/components/custom.css
 }
