@@ -1,11 +1,14 @@
 @media screen and (max-width: 1050px) {
-    .app-header, .carousel, .slide, .navbar-container, .tenancy-list,  footer, .about-container, .tenancy-list .media .carousel {
+    .app-header, .carousel, .slide, .navbar-container, .tenancy-list, .tenancy-list .media .img-thumbnail, footer, .about-container, .tenancy-list .media .carousel {
         width: 90%;
     }
     .tenancy-list .new-tenancy-card {
         width: 100%;
     }
-    .w-100 {
+    .carousel {
+        margin-bottom: 5%;;
+    }
+    .w-100, .carousel-inner {
         height: 30vh;
     }
     .media .street-view-container, .media .img-thumbnail {
@@ -20,26 +23,11 @@
     .media {
         flex-direction: column;
     }
-<<<<<<< HEAD:src/media.css
-    .tenancy-list .media .carousel{
-        width: 100%;
-    }
-    .media-body {
-        margin: 0 5%;
-    }
-    .tenancy-list .button-container {
-        justify-content: space-evenly;
-        margin-bottom: 5%;
-    }
-    .tenancy-list .media .media-body h3 {
-        text-align: center;
-=======
     .media .media-body {
         margin: 0 5%;
     }
     .tenancy-list .button-container {
         justify-content: space-around;
->>>>>>> backend:frontend/src/media.css
     }
 }
 

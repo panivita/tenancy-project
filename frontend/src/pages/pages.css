@@ -8,11 +8,9 @@ input[type="file"] {
     color: #1f1f1f;
 }
 
- .media .carousel {
+ .media .img-thumbnail {
     width: 45%;
     margin-right: 5%;
-}
-.media .w-100, .media .d-block {
     height: 40vh;
 }
 .media-body {

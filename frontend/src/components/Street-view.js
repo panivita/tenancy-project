@@ -35,11 +35,7 @@ export const StreetView = ({ address }) => {
     <div
       style={{
         width: "100%",
-<<<<<<< HEAD:src/components/Street-view.js
-        height: "350px",
-=======
         height: "325px",
->>>>>>> backend:frontend/src/components/Street-view.js
         backgroundColor: "#eeeeee",
         padding: "5px",
       }}
