@@ -9,9 +9,7 @@ export const Portfolio = ({ list = [] }) => {
   const history = useHistory();
 
   useEffect(() => {
-    const baseUrl =
-      "https://gist.githubusercontent.com/panivita/0a86aa14bf72404e8609887f17466509/raw";
-    fetch(baseUrl)
+    fetch("api/tenancy")
       .then((res) => res.json())
       .then((data) => setTenancies(data))
       .catch((err) => console.log(err));
@@ -21,7 +19,7 @@ export const Portfolio = ({ list = [] }) => {
     setTenancies((tenancy) => {
       const item = {
         id: tenancy[tenancy.length - 1]?.id + 1 || 1,
-        imageUrl: val.imageUrl,
+        url: val.url,
         address: val.address,
         size: val.size,
         rooms: val.rooms,

@@ -5,7 +5,7 @@ import { StreetView } from "./Street-view";
 
 export const TenancyDetails = ({
   id,
-  imageUrl,
+  url,
   address,
   size,
   rooms,
@@ -21,7 +21,7 @@ export const TenancyDetails = ({
   return (
     <>
       <Media style={{ textAlign: "left" }}>
-        <Image src={imageUrl} thumbnail />
+        <Image src={url} thumbnail />
         <Media.Body>
           {edit ? (
             <>
@@ -75,34 +75,42 @@ export const TenancyDetails = ({
           )}
         </Media.Body>
       </Media>
-      <StreetView address={address} />
+
       <div className="button-container">
         {edit ? (
-          <Button
-            variant="info"
-            onClick={() => {
-              onEdit(id, { newRooms, newAaddress, newDescription, newSize });
-              setEdit(false);
-            }}
-            style={{ marginRight: "5%" }}
-          >
-            Update
-          </Button>
+          <>
+            <Button
+              variant="info"
+              onClick={() => {
+                onEdit(id, { newRooms, newAaddress, newDescription, newSize });
+                setEdit(false);
+              }}
+              style={{ marginRight: "5%" }}
+            >
+              Update
+            </Button>
+            <Button variant="info" onClick={() => setEdit(false)}>
+              Cancel
+            </Button>
+          </>
         ) : (
-          <Button
-            variant="info"
-            onClick={() => setEdit(true)}
-            style={{ marginRight: "5%" }}
-          >
-            <PencilSquare style={{ marginRight: "5px" }} />
-            Edit
-          </Button>
+          <>
+            <Button
+              variant="info"
+              onClick={() => setEdit(true)}
+              style={{ marginRight: "5%" }}
+            >
+              <PencilSquare style={{ marginRight: "5px" }} />
+              Edit
+            </Button>
+            <Button variant="info" onClick={() => onDelete(id)}>
+              <Trash style={{ marginRight: "5px" }} />
+              Delete
+            </Button>
+          </>
         )}
-        <Button variant="info" onClick={() => onDelete(id)}>
-          <Trash style={{ marginRight: "5px" }} />
-          Delete
-        </Button>
       </div>
+      <StreetView address={address} />
     </>
   );
 };

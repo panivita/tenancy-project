@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import "./pages.css";
 
 export const AddTenancyFormPage = ({onSubmit}) => {
-  const [imageUrl, setImageUrl] = useState("");
+  const [url, setUrl] = useState("");
   const [address, setAddress] = useState("");
   const [size, setSize] = useState("");
   const [rooms, setRooms] = useState("");
@@ -28,17 +28,17 @@ export const AddTenancyFormPage = ({onSubmit}) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log(imageUrl, address, size, rooms);
+    console.log(url, address, size, rooms);
   };
   return (
     <Form className="tenancy-list" onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Control
           type="text"
-          name="imageUrl"
+          name="url"
           placeholder="Image url"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
         />
       </Form.Group>
       <Form.Group>

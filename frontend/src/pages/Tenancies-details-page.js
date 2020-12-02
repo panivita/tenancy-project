@@ -9,12 +9,9 @@ export const TenanciesDetailsPage = () => {
 
   useEffect(() => {
     (async () => {
-      const baseUrl =
-        "https://gist.githubusercontent.com/panivita/0a86aa14bf72404e8609887f17466509/raw";
-      const response = await fetch(baseUrl);
+      const response = await fetch("/api/tenancy/" + id);
       const result = await response.json();
-      const tenancyById = result.filter((t) => t.id == id);
-      setTenancy(tenancyById);
+      setTenancy(result);
     })();
   }, [id]);
 
@@ -42,16 +39,18 @@ export const TenanciesDetailsPage = () => {
     });
   };
   return (
-    <div className="tenancy-list">
-      {tenancy &&
-        tenancy.map((t) => (
-          <TenancyDetails
-            key={t.id}
-            {...t}
-            onEdit={editItems}
-            onDelete={deleteItems}
-          />
-        ))}
-    </div>
+    <>
+      <div className="tenancy-list">
+        {tenancy &&
+          tenancy.map((t) => (
+            <TenancyDetails
+              key={t.id}
+              {...t}
+              onEdit={editItems}
+              onDelete={deleteItems}
+            />
+          ))}
+      </div>
+    </>
   );
 };

@@ -31,3 +31,11 @@
     height: 120px;
     margin-top: 5%;
 }
+
+.street-view-container {
+    width: 95%;
+    min-height: 350px;
+    height: 350px;
+    background-color: #eeeeee;
+    margin: 5% auto;
+}

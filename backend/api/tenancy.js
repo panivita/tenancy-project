@@ -2,6 +2,12 @@ const express = require("express");
 const knex = require("../database");
 const router = express.Router();
 
+//Returns all tenancies
+router.get("/", async (req, res) => {
+  const allTenancies = await knex.select("*").table("flats");
+  res.json(allTenancies);
+});
+
 //Adds a new tenancy
 router.post("/", async (req, res) => {
   const { addres, description, url, size, rooms } = req.body;
