@@ -1,8 +1,11 @@
 @media screen and (max-width: 1050px) {
-    .app-header, .carousel, .slide, .navbar-container, .tenancy-list, footer, .about-container, .tenancy-list .media .carousel {
+    .app-header, .carousel, .slide, .navbar-container, .tenancy-list,  footer, .about-container, .tenancy-list .media .carousel {
         width: 90%;
     }
-    .w-100  {
+    .tenancy-list .new-tenancy-card {
+        width: 100%;
+    }
+    .w-100 {
         height: 30vh;
     }
     .media .street-view-container, .media .img-thumbnail {
@@ -17,12 +20,12 @@
     .media {
         flex-direction: column;
     }
-     .media .media-body {
-         margin: 0 5%;
-     } 
-     .tenancy-list .button-container {
-         justify-content: space-around;
-     }  
+    .media .media-body {
+        margin: 0 5%;
+    }
+    .tenancy-list .button-container {
+        justify-content: space-around;
+    }
 }
 
 @media screen and (max-width: 455px) {

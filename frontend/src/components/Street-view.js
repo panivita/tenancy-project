@@ -37,7 +37,7 @@ export const StreetView = ({ address }) => {
         width: "100%",
         height: "325px",
         backgroundColor: "#eeeeee",
-        margin: "5% auto 3%",
+        padding: "5px",
       }}
     >
       <ReactStreetview

@@ -110,7 +110,9 @@ export const TenancyDetails = ({
           </>
         )}
       </div>
-      <StreetView address={address} />
+      <div className="street-view-container">
+        <StreetView address={address} />
+      </div>
     </>
   );
 };
