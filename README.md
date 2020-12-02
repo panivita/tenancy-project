@@ -11,5 +11,5 @@ The application has been deployed to heroku [https://tenancy-challenge.herokuapp
 2. CSS framework [React Bootstrap](https://react-bootstrap.netlify.app/).
 3. Icon library [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons).
 4. [react-geocode](https://www.npmjs.com/package/react-geocode) was used to convert the location description (street address, city name, etc.) to geographic coordinates (i.e. latitude and longitude).
-Simple React.js component [react-streetview](https://www.npmjs.com/package/react-streetview) was used for Google Street View.
-Simple backend part was created using Node.js (express.js, knex.js), MySQL database.
+5. Simple React.js component [react-streetview](https://www.npmjs.com/package/react-streetview) was used for Google Street View.
+6. Simple backend part was created using Node.js (express.js, knex.js), MySQL database.
