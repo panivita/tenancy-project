@@ -110,7 +110,7 @@ export const TenancyDetails = ({
             <Button
               variant="info"
               onClick={() => {
-                onEdit();
+                onEdit(id, address, size, rooms, description);
                 setEdit(false);
               }}
               style={{ marginRight: "5%" }}

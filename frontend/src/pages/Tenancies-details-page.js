@@ -13,7 +13,7 @@ export const TenanciesDetailsPage = () => {
       const result = await response.json();
       setTenancy(result);
     })();
-  }, [id]);
+  }, [id, tenancy]);
 
   return (
     <>
